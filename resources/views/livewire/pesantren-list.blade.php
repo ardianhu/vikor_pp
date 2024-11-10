@@ -120,7 +120,12 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Akreditasi</label>
-                        <input type="text" wire:model="akreditasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Masukkan akreditasi pesantren" />
+                        <select wire:model="akreditasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                            <option value="">Pilih Akreditasi</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
                         @error('akreditasi') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                     </div>
 
