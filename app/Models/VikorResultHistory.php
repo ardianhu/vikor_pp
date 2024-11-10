@@ -10,7 +10,7 @@ class VikorResultHistory extends Model
     use HasFactory;
     protected $fillable = ['pesantren_id', 'vikor_score', 'rank', 'calculated_at'];
 
-    public function school()
+    public function pesantren()
     {
         return $this->belongsTo(Pesantren::class);
     }

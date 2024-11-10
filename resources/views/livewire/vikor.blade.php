@@ -19,7 +19,7 @@
                 <!-- Starts component -->
                 <div x-data="{ bobot_akreditasi: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotAkreditasi" id="bobot_akreditasi" x-model="bobot_akreditasi" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring"> </div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring"><span x-text=""></span></div>
                 </div> <!-- Ends component -->
             </div>
         </div>

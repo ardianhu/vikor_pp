@@ -7,7 +7,9 @@
 
     <div class="w-full flex items-center justify-between mb-2">
         <h2 class="text-2xl font-bold mb-4">Daftar Pesantren</h2>
+        @if(Auth::user()->is_admin)
         <button wire:click="toogleAddModal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Tambah Pesantren</button>
+        @endif
     </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -68,11 +70,11 @@
                     <td class="px-6 py-4">
                         <div class="flex flex-col items-center justify-center space-y-2">
                             <a href="/pesantren/{{ $item->id }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition duration-200">Detail</a>
-
+                            @if(Auth::user()->is_admin)
                             <a href="#" wire:click="toogleEditModal({{ $item->id }})" class="inline-block bg-yellow-500 text-white px-4 py-2 rounded-md shadow hover:bg-yellow-600 transition duration-200">Ubah</a>
 
                             <a href="#" class="inline-block bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition duration-200" onclick="confirmDelete({{ $item->id }})">Hapus</a>
-
+                            @endif
                         </div>
 
                     </td>

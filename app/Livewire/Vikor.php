@@ -6,11 +6,12 @@ use App\Models\Extracurricular;
 use App\Models\Facility;
 use App\Models\LearningMethod;
 use App\Models\Pesantren;
+use App\Models\VikorResultHistory;
 use Livewire\Component;
 
 class Vikor extends Component
 {
-    // User-defined weights
+    // pre-defined weights
     public $selectedBobotAkreditasi = 1;
     public $selectedBobotJumlahSantri = 1;
     public $selectedBobotBiayaBulanan = 1;
@@ -42,6 +43,9 @@ class Vikor extends Component
         // Normalize and calculate VIKOR scores
         $normalizedData = $this->normalizeData($criteriaData);
         $this->results = $this->calculateQValues($normalizedData);
+
+        // store vikor result history
+        $this->storeVikorResults($this->results);
     }
 
     private function normalizeData($data)
@@ -155,10 +159,23 @@ class Vikor extends Component
             $Q[$item['id']] = 0.5 * $S_term + 0.5 * $R_term;
         }
 
-        return array_map(function ($item) use ($Q) {
+        // dd($data);
+        return collect(array_map(function ($item) use ($Q) {
             $item['Q'] = $Q[$item['id']];
             return $item;
-        }, $data);
+        }, $data))->sortBy('Q')->values()->all();
+    }
+
+    private function storeVikorResults($sortedResults)
+    {
+        foreach ($sortedResults as $rank => $result) {
+            VikorResultHistory::create([
+                'pesantren_id' => $result['id'],
+                'vikor_score' => $result['Q'],
+                'rank' => $rank + 1, // Rank starts at 1
+                'calculated_at' => now(),
+            ]);
+        }
     }
 
 
