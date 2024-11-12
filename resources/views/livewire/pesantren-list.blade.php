@@ -95,7 +95,7 @@
     @if ($showAddModal || $showEditModal)
     <div class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl mx-4">
-            <div class="flex justify-between items-center mb-6">
+            <div class="flex justify-between items-center mb-6 max-h-[80vh] overflow-y-auto">
                 <h3 class="text-2xl font-semibold text-gray-800">{{ $showAddModal ? 'Tambah Pesantren' : 'Edit Pesantren' }}</h3>
                 <button type="button" class="text-gray-500 hover:text-gray-700" wire:click="closeModals">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,14 +147,14 @@
                         @error('other_details') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Latitude</label>
-                        <input id="latitude" type="text" wire:model="latt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Masukkan Latitude" />
+                        <!-- <label class="block text-sm font-medium text-gray-700">Latitude</label>
+                        <input id="latitude" type="text" wire:model="latt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Masukkan Latitude" /> -->
                         @error('lat') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700">Longitude</label>
-                        <input id="longitude" type="text" wire:model="long" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Masukkan Longitude" />
+                        <!-- <label class="block text-sm font-medium text-gray-700">Longitude</label>
+                        <input id="longitude" type="text" wire:model="long" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Masukkan Longitude" /> -->
                         @error('long') <span class="text-red-500 text-xs">{{ $message }}</span> @enderror
                     </div>
                 </div>
