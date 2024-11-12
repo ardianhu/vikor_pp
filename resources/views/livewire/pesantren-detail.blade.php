@@ -22,10 +22,10 @@
             @endforeach
         </ul>
         @if(Auth::user()->is_admin)
-        <div class="mt-4">
-            <input type="text" wire:model="newFacility" placeholder="Nama Fasilitas" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-2" />
-            <input type="text" wire:model="newFacilityDesc" placeholder="Deskripsi Fasilitas" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
-            <button wire:click="addFacility" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tambah Fasilitas</button>
+        <div x-data="{ newFacility: '', newFacilityDesc: '' }" class="mt-4">
+            <input type="text" x-model="newFacility" wire:model="newFacility" placeholder="Nama Fasilitas" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-2" />
+            <input type="text" x-model="newFacilityDesc" wire:model="newFacilityDesc" placeholder="Deskripsi Fasilitas" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
+            <button wire:click="addFacility; newFacility = ''; newFacilityDesc = '';" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tambah Fasilitas</button>
         </div>
         @endif
 
@@ -44,10 +44,10 @@
             @endforeach
         </ul>
         @if(Auth::user()->is_admin)
-        <div class="mt-4">
-            <input type="text" wire:model="newExtracurricular" placeholder="Nama Ekstrakurikuler" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-2" />
-            <input type="text" wire:model="newExtracurricularDesc" placeholder="Deskripsi Ekstrakurikuler" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
-            <button wire:click="addExtracurricular" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Add Extracurricular</button>
+        <div x-data="{ newExtracurricular: '', newExtracurricularDesc: '' }" class="mt-4">
+            <input type="text" x-model="newExtracurricular" wire:model="newExtracurricular" placeholder="Nama Ekstrakurikuler" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-2" />
+            <input type="text" x-model="newExtracurricularDesc" wire:model="newExtracurricularDesc" placeholder="Deskripsi Ekstrakurikuler" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500" />
+            <button wire:click="addExtracurricular; newExtracurricular = ''; newExtracurricularDesc = '';" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tambah Ekstrakurikuler</button>
         </div>
         @endif
     </div>

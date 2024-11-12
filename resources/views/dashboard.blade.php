@@ -25,7 +25,7 @@
                             <tr class="bg-gray-100">
                                 <th class="px-4 py-2">Rank</th>
                                 <th class="px-4 py-2">Nama Pesantren</th>
-                                <th class="px-4 py-2">Rata-rata Skor</th>
+                                <!-- <th class="px-4 py-2">Rata-rata Skor</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -33,7 +33,7 @@
                             <tr>
                                 <td class="border px-4 py-2">{{ $index + 1 }}</td>
                                 <td class="border px-4 py-2">{{ $result->pesantren->name }}</td>
-                                <td class="border px-4 py-2">{{ $result->avg_score }}</td>
+                                <!-- <td class="border px-4 py-2">{{ $result->avg_score }}</td> -->
                             </tr>
                             @endforeach
                         </tbody>
