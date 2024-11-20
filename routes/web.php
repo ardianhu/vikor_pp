@@ -26,12 +26,11 @@ Route::middleware(['auth'])->group(function () {
     // After the existing Breeze routes add the following routes:
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('pesantren', [PesantrenController::class, 'index'])->name('pesantrens.index');
-    Route::get('/pesantren/{id}', [PesantrenController::class, 'show'])->name('pesantren.show');
-    Route::get('/rekomendasi', [VikorController::class, 'index'])->name('vikor.index');
 });
+Route::get('/pesantren/{id}', [PesantrenController::class, 'show'])->name('pesantren.show');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('pesantren', [PesantrenController::class, 'index'])->name('pesantrens.index');
+Route::get('/rekomendasi', [VikorController::class, 'index'])->name('vikor.index');
 // Outside the middleware group, add a route to display posts publicly:
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');

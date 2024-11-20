@@ -15,12 +15,15 @@
                     <span class="font-bold">{{ $facility->name }}: </span>
                     <span class="italic">{{ $facility->description }}</span>
                 </div>
+                @auth
                 @if(Auth::user()->is_admin)
                 <button wire:click="deleteFacility({{ $facility->id }})" class="text-red-500 hover:text-red-700 ml-2">Hapus</button>
                 @endif
+                @endauth
             </li>
             @endforeach
         </ul>
+        @auth
         @if(Auth::user()->is_admin)
         <div x-data="{ newFacility: '', newFacilityDesc: '' }" class="mt-4">
             <input type="text" x-model="newFacility" wire:model="newFacility" placeholder="Nama Fasilitas" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-2" />
@@ -28,6 +31,7 @@
             <button wire:click="addFacility; newFacility = ''; newFacilityDesc = '';" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tambah Fasilitas</button>
         </div>
         @endif
+        @endauth
 
         <h2 class="text-2xl font-bold mt-8">Ekstrakurikuler</h2>
         <ul class="list-disc pl-5 mt-2">
@@ -37,12 +41,15 @@
                     <span class="font-bold">{{ $extra->name }}: </span>
                     <span class="italic">{{ $extra->description }}</span>
                 </div>
+                @auth
                 @if(Auth::user()->is_admin)
                 <button wire:click="deleteExtracurricular({{ $extra->id }})" class="text-red-500 hover:text-red-700 ml-2">Hapus</button>
                 @endif
+                @endauth
             </li>
             @endforeach
         </ul>
+        @auth
         @if(Auth::user()->is_admin)
         <div x-data="{ newExtracurricular: '', newExtracurricularDesc: '' }" class="mt-4">
             <input type="text" x-model="newExtracurricular" wire:model="newExtracurricular" placeholder="Nama Ekstrakurikuler" class="input input-bordered w-full p-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-2" />
@@ -50,5 +57,6 @@
             <button wire:click="addExtracurricular; newExtracurricular = ''; newExtracurricularDesc = '';" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Tambah Ekstrakurikuler</button>
         </div>
         @endif
+        @endauth
     </div>
 </div>

@@ -2,10 +2,10 @@
     <form wire:submit.prevent="calculateVikor" class="bg-white p-8 w-full mx-auto">
         <h2 class="text-2xl font-semibold text-gray-700 mb-6 text-center">Tentukan bobot untuk kriteria pesantren impianmu</h2>
 
-        <div class="mb-5 flex items-center">
-            <img src="{{ asset('images/akreditasi.png') }}" alt="Akreditasi" class="w-52 h-52 mr-4 object-cover">
-            <div class="flex-1 ml-10">
-                <label class="block text-gray-600 font-medium mb-2">Akreditasi</label>
+        <div class="mb-5 flex flex-col md:flex-row items-center">
+            <img src="{{ asset('images/akreditasi.png') }}" alt="Akreditasi" class="w-52 h-52 mx-auto object-cover">
+            <div class="md:flex-1 md:ml-10">
+                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Akreditasi</label>
                 <!-- <input
                     type="range"
                     wire:model="selectedAkreditasi"
@@ -24,10 +24,10 @@
             </div>
         </div>
 
-        <div class="mb-5 flex items-center">
-            <img src="{{ asset('images/jumlah_santri.jpg') }}" alt="Jumlah Santri" class="w-52 h-52 mr-4 object-cover">
-            <div class="flex-1 ml-10">
-                <label class="block text-gray-600 font-medium mb-2">Jumlah Santri</label>
+        <div class="mb-5 flex flex-col md:flex-row items-center">
+            <img src="{{ asset('images/jumlah_santri.jpg') }}" alt="Jumlah Santri" class="w-52 h-52 mx-auto object-cover">
+            <div class="md:flex-1 md:ml-10">
+                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Jumlah Santri</label>
                 <!-- Starts component -->
                 <div x-data="{ bobot_jumlah_santri: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotJumlahSantri" id="bobot_jumlah_santri" x-model="bobot_jumlah_santri" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
@@ -36,10 +36,10 @@
             </div>
         </div>
 
-        <div class="mb-5 flex items-center">
-            <img src="{{ asset('images/biaya_bulanan.jpeg') }}" alt="Biaya Bulanan" class="w-52 h-52 mr-4 object-cover">
-            <div class="flex-1 ml-10">
-                <label class="block text-gray-600 font-medium mb-2">Biaya Bulanan</label>
+        <div class="mb-5 flex flex-col md:flex-row items-center">
+            <img src="{{ asset('images/biaya_bulanan.jpeg') }}" alt="Biaya Bulanan" class="w-52 h-52 mx-auto object-cover">
+            <div class="md:flex-1 md:ml-10">
+                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Biaya Bulanan</label>
                 <!-- Starts component -->
                 <div x-data="{ bobot_biaya_bulanan: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotBiayaBulanan" id="bobot_biaya_bulanan" x-model="bobot_biaya_bulanan" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
@@ -48,10 +48,10 @@
             </div>
         </div>
 
-        <div class="mb-5 flex items-center">
-            <img src="{{ asset('images/fasilitas.jpg') }}" alt="Fasilits" class="w-52 h-52 mr-4 object-cover">
-            <div class="flex-1 ml-10">
-                <label class="block text-gray-600 font-medium mb-2">Fasilitas</label>
+        <div class="mb-5 flex flex-col md:flex-row items-center">
+            <img src="{{ asset('images/fasilitas.jpg') }}" alt="Fasilits" class="w-52 h-52 mx-auto object-cover">
+            <div class="md:flex-1 md:ml-10">
+                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Fasilitas</label>
                 <!-- Starts component -->
                 <div x-data="{ bobot_fasilitas: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotFasilitas" id="bobot_fasilitas" x-model="bobot_fasilitas" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
@@ -60,10 +60,10 @@
             </div>
         </div>
 
-        <div class="mb-5 flex items-center">
-            <img src="{{ asset('images/ekstrakurikuler.jpg') }}" alt="Ekstrakurikuler" class="w-52 h-52 mr-4 object-cover">
-            <div class="flex-1 ml-10">
-                <label class="block text-gray-600 font-medium mb-2">Ekstrakurikuler</label>
+        <div class="mb-5 flex flex-col md:flex-row items-center">
+            <img src="{{ asset('images/ekstrakurikuler.jpg') }}" alt="Ekstrakurikuler" class="w-52 h-52 mx-auto object-cover">
+            <div class="md:flex-1 md:ml-10">
+                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Ekstrakurikuler</label>
                 <!-- Starts component -->
                 <div x-data="{ bobot_ekstrakurikuler: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotEkstrakurikuler" id="bobot_ekstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
