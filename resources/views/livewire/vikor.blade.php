@@ -19,7 +19,7 @@
                 <!-- Starts component -->
                 <div x-data="{ bobot_akreditasi: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotAkreditasi" id="bobot_akreditasi" x-model="bobot_akreditasi" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_akreditasi == 5 ? 'Sangat Prioritas' : bobot_akreditasi == 4 ? 'Prioritas Tinggi' : bobot_akreditasi == 3 ? 'Prioritas Menengah' : bobot_akreditasi == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_akreditasi == 5 ? 'Sangat Prioritas' : bobot_akreditasi == 4 ? 'Prioritas Tinggi' : bobot_akreditasi == 3 ? 'Prioritas Menengah' : bobot_akreditasi == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
                 </div> <!-- Ends component -->
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <!-- Starts component -->
                 <div x-data="{ bobot_jumlah_santri: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotJumlahSantri" id="bobot_jumlah_santri" x-model="bobot_jumlah_santri" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_jumlah_santri" class="block text-gray-500">Bobot Jumlah Santri</label> <input type="number" id="inputBobotJumlahSantri" x-model="bobot_jumlah_santri" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_jumlah_santri == 5 ? 'Sangat Prioritas' : bobot_jumlah_santri == 4 ? 'Prioritas Tinggi' : bobot_jumlah_santri == 3 ? 'Prioritas Menengah' : bobot_jumlah_santri == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_jumlah_santri" class="block text-gray-500">Bobot Jumlah Santri</label> <input type="number" id="inputBobotJumlahSantri" x-model="bobot_jumlah_santri" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_jumlah_santri == 5 ? 'Sangat Prioritas' : bobot_jumlah_santri == 4 ? 'Prioritas Tinggi' : bobot_jumlah_santri == 3 ? 'Prioritas Menengah' : bobot_jumlah_santri == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
                 </div> <!-- Ends component -->
             </div>
         </div>
@@ -43,7 +43,7 @@
                 <!-- Starts component -->
                 <div x-data="{ bobot_biaya_bulanan: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotBiayaBulanan" id="bobot_biaya_bulanan" x-model="bobot_biaya_bulanan" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_biaya_bulanan" class="block text-gray-500">Bobot Biaya Bulanan</label> <input type="number" id="inputBobotBiayaBulanan" x-model="bobot_biaya_bulanan" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_biaya_bulanan == 5 ? 'Sangat Prioritas' : bobot_biaya_bulanan == 4 ? 'Prioritas Tinggi' : bobot_biaya_bulanan == 3 ? 'Prioritas Menengah' : bobot_biaya_bulanan == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_biaya_bulanan" class="block text-gray-500">Bobot Biaya Bulanan</label> <input type="number" id="inputBobotBiayaBulanan" x-model="bobot_biaya_bulanan" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_biaya_bulanan == 5 ? 'Sangat Prioritas' : bobot_biaya_bulanan == 4 ? 'Prioritas Tinggi' : bobot_biaya_bulanan == 3 ? 'Prioritas Menengah' : bobot_biaya_bulanan == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
                 </div> <!-- Ends component -->
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <!-- Starts component -->
                 <div x-data="{ bobot_fasilitas: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotFasilitas" id="bobot_fasilitas" x-model="bobot_fasilitas" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_fasilitas" class="block text-gray-500">Bobot Fasilitas</label> <input type="number" id="inputBobotFasilitas" x-model="bobot_fasilitas" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_fasilitas == 5 ? 'Sangat Prioritas' : bobot_fasilitas == 4 ? 'Prioritas Tinggi' : bobot_fasilitas == 3 ? 'Prioritas Menengah' : bobot_fasilitas == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_fasilitas" class="block text-gray-500">Bobot Fasilitas</label> <input type="number" id="inputBobotFasilitas" x-model="bobot_fasilitas" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_fasilitas == 5 ? 'Sangat Prioritas' : bobot_fasilitas == 4 ? 'Prioritas Tinggi' : bobot_fasilitas == 3 ? 'Prioritas Menengah' : bobot_fasilitas == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
                 </div> <!-- Ends component -->
             </div>
         </div>
@@ -67,7 +67,7 @@
                 <!-- Starts component -->
                 <div x-data="{ bobot_ekstrakurikuler: 1 }" class="w-full">
                     <div> <input type="range" wire:model="selectedBobotEkstrakurikuler" id="bobot_ekstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_ekstrakurikuler" class="block text-gray-500">Bobot Ekstrakurikuler</label> <input type="number" id="inputBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_ekstrakurikuler == 5 ? 'Sangat Prioritas' : bobot_ekstrakurikuler == 4 ? 'Prioritas Tinggi' : bobot_ekstrakurikuler == 3 ? 'Prioritas Menengah' : bobot_ekstrakurikuler == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_ekstrakurikuler" class="block text-gray-500">Bobot Ekstrakurikuler</label> <input type="number" id="inputBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_ekstrakurikuler == 5 ? 'Sangat Prioritas' : bobot_ekstrakurikuler == 4 ? 'Prioritas Tinggi' : bobot_ekstrakurikuler == 3 ? 'Prioritas Menengah' : bobot_ekstrakurikuler == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
                 </div> <!-- Ends component -->
             </div>
         </div>
