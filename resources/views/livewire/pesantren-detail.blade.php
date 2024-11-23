@@ -1,8 +1,8 @@
 <div>
     <h1 class="text-3xl font-bold mb-4">{{ $pesantren->name }}</h1>
-    <p class="text-gray-700">Address: <span class="font-semibold">{{ $pesantren->address }}</span></p>
+    <p class="text-gray-700">Alamat: <span class="font-semibold">{{ $pesantren->address }}</span></p>
     <p class="text-gray-700">Akreditasi: <span class="font-semibold">{{ $pesantren->akreditasi }}</span></p>
-    <p class="text-gray-700">Total Students: <span class="font-semibold">{{ $pesantren->total_students }}</span></p>
+    <p class="text-gray-700">Jumlah Santri: <span class="font-semibold">{{ $pesantren->total_students }}</span></p>
     <p class="text-gray-700">Biaya Bulanan: <span class="font-semibold">Rp. {{ number_format($pesantren->biaya_bulanan, 0, ',', '.') }}</span></p>
     <p class="text-gray-700">Detail: <span class="font-semibold">{{ $pesantren->other_details }}</span></p>
 
