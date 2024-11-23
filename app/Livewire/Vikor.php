@@ -31,11 +31,11 @@ class Vikor extends Component
             return [
                 'id' => $pesantren->id,
                 'name' => $pesantren->name,
-                'akreditasi' => $pesantren->akreditasi == 'A' ? 1 : ($pesantren->akreditasi == 'B' ? 0.75 : 0.5),
-                'jumlah_santri' => $pesantren->total_students,
-                'biaya_bulanan' => $pesantren->biaya_bulanan,
-                'fasilitas' => $pesantren->facilities->count(),
-                'ekstrakurikuler' => $pesantren->extracurriculars->count(),
+                'akreditasi' => $pesantren->akreditasi == 'A' ? 4 : ($pesantren->akreditasi == 'B' ? 3 : ($pesantren->akreditasi == 'C' ? 2 : ($pesantren->akreditasi == 'Akreditasi Unggul' ? 5 : 1))),
+                'jumlah_santri' => $pesantren->total_students <= 200 ? 1 : ($pesantren->total_students <= 300 ? 2 : ($pesantren->total_students <= 400 ? 3 : ($pesantren->total_students <= 500 ? 4 : 5))),
+                'biaya_bulanan' => $pesantren->biaya_bulanan <= 75000 ? 5 : ($pesantren->biaya_bulanan <= 200000 ? 4 : ($pesantren->biaya_bulanan <= 300000 ? 3 : ($pesantren->biaya_bulanan <= 400000 ? 2 : 1))),
+                'fasilitas' => $pesantren->facilities->count() <= 3 ? 1 : ($pesantren->facilities->count() <= 5 ? 2 : ($pesantren->facilities->count() <= 8 ? 3 : ($pesantren->facilities->count() <= 12 ? 4 : 5))),
+                'ekstrakurikuler' => $pesantren->extracurriculars->count() <= 1 ? 1 : ($pesantren->extracurriculars->count() <= 4 ? 2 : ($pesantren->extracurriculars->count() <= 7 ? 3 : ($pesantren->extracurriculars->count() <= 9 ? 4 : 5))),
             ];
         });
         $this->alternativeResults = $criteriaData;
