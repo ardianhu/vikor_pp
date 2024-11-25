@@ -120,11 +120,11 @@
             <tr>
                 <td class="border px-4 py-2">{{ $index + 1 }}</td>
                 <td class="border px-4 py-2">{{ $normalized['name'] }}</td>
-                <td class="border px-4 py-2">{{ $normalized['akreditasi'] }}</td>
-                <td class="border px-4 py-2">{{ $normalized['jumlah_santri'] }}</td>
-                <td class="border px-4 py-2">{{ $normalized['biaya_bulanan'] }}</td>
-                <td class="border px-4 py-2">{{ $normalized['fasilitas'] }}</td>
-                <td class="border px-4 py-2">{{ $normalized['ekstrakurikuler'] }}</td>
+                <td class="border px-4 py-2">{{ number_format($normalized['akreditasi'], 2) }}</td>
+                <td class="border px-4 py-2">{{ number_format($normalized['jumlah_santri'], 2) }}</td>
+                <td class="border px-4 py-2">{{ number_format($normalized['biaya_bulanan'], 2) }}</td>
+                <td class="border px-4 py-2">{{ number_format($normalized['fasilitas'], 2) }}</td>
+                <td class="border px-4 py-2">{{ number_format($normalized['ekstrakurikuler'], 2) }}</td>
             </tr>
             @endforeach
         </tbody>
