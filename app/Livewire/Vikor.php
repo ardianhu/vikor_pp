@@ -88,13 +88,13 @@ class Vikor extends Component
     {
 
         $dataCollection = collect($data);
-
+        $total_w = $this->selectedBobotAkreditasi + $this->selectedBobotJumlahSantri + $this->selectedBobotBiayaBulanan + $this->selectedBobotFasilitas + $this->selectedBobotEkstrakurikuler;
         $weights = [
-            'akreditasi' => $this->selectedBobotAkreditasi,
-            'jumlah_santri' => $this->selectedBobotJumlahSantri,
-            'biaya_bulanan' => $this->selectedBobotBiayaBulanan,
-            'fasilitas' => $this->selectedBobotFasilitas,
-            'ekstrakurikuler' => $this->selectedBobotEkstrakurikuler
+            'akreditasi' => $this->selectedBobotAkreditasi / $total_w,
+            'jumlah_santri' => $this->selectedBobotJumlahSantri / $total_w,
+            'biaya_bulanan' => $this->selectedBobotBiayaBulanan / $total_w,
+            'fasilitas' => $this->selectedBobotFasilitas / $total_w,
+            'ekstrakurikuler' => $this->selectedBobotEkstrakurikuler / $total_w
         ];
 
         // Calculate the minimum and maximum values for each criterion
