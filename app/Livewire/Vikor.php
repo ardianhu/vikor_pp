@@ -63,13 +63,13 @@ class Vikor extends Component
 
             foreach ($criteria as $criterion) {
                 // Determine best and worst values based on criterion type
-                if ($criterion != 'biaya_bulanan') {
-                    $worst = collect($data)->min($criterion);
-                    $best = collect($data)->max($criterion);
-                } else {
-                    $worst = collect($data)->max($criterion);
-                    $best = collect($data)->min($criterion);
-                }
+                // if ($criterion != 'biaya_bulanan') {
+                //     $worst = collect($data)->min($criterion);
+                //     $best = collect($data)->max($criterion);
+                // } else {
+                $worst = collect($data)->max($criterion);
+                $best = collect($data)->min($criterion);
+                // }
 
                 // Normalize the data for each criterion
                 $normalizedItem[$criterion] = $best == $worst ? 0 : ($best - $item[$criterion]) / ($best - $worst);
