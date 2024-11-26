@@ -38,7 +38,7 @@ class PesantrenList extends Component
         //     'pesantrens' => Pesantren::with(['facilities', 'learningMethods', 'extracurriculars'])->paginate(10),
         // ]);
 
-        $pesantren = Pesantren::with(['facilities', 'extracurriculars'])->paginate(10);
+        $pesantren = Pesantren::with(['facilities', 'extracurriculars'])->paginate(20);
         // dd($pesantren);
         return view('livewire.pesantren-list', compact('pesantren'));
     }
