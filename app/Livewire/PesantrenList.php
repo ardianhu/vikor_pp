@@ -20,7 +20,7 @@ class PesantrenList extends Component
         'long' => 'nullable|string|max:255',
         'latt' => 'nullable|string|max:255',
         'biaya_bulanan' => 'required|integer',
-        'akreditasi' => 'required|string|max:5',
+        'akreditasi' => 'required|string|max:17',
         'total_students' => 'required|integer|min:1',
         'other_details' => 'nullable|string'
     ];
