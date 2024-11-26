@@ -24,9 +24,10 @@ class Vikor extends Component
 
     public function calculateVikor()
     {
+        // data awal
         $pesantrenData = Pesantren::with(['facilities', 'extracurriculars'])->get();
 
-        // Prepare criteria data with default values
+        // Nilai kritera
         $criteriaData = $pesantrenData->map(function ($pesantren) {
             return [
                 'id' => $pesantren->id,
@@ -40,8 +41,9 @@ class Vikor extends Component
         });
         $this->alternativeResults = $criteriaData;
 
-        // Normalize and calculate VIKOR scores
+        // Normalisasi
         $normalizedData = $this->normalizeData($criteriaData);
+        // perhitungan selanjutnya
         $this->results = $this->calculateQValues($normalizedData);
 
         // store vikor result history
@@ -55,31 +57,20 @@ class Vikor extends Component
         $normalizedData = [];
 
         foreach ($data as $item) {
-            // Initialize each normalized item with the same 'id' and 'name'
             $normalizedItem = [
                 'id' => $item['id'],
                 'name' => $item['name']
             ];
 
             foreach ($criteria as $criterion) {
-                // Determine best and worst values based on criterion type
-                // if ($criterion != 'biaya_bulanan') {
                 $worst = collect($data)->min($criterion);
                 $best = collect($data)->max($criterion);
-                // } else {
-                // $worst = collect($data)->max($criterion);
-                // $best = collect($data)->min($criterion);
-                // }
-
-                // Normalize the data for each criterion
+                // Rumus Normalisasi
                 $normalizedItem[$criterion] = $best == $worst ? 0 : ($best - $item[$criterion]) / ($best - $worst);
             }
 
-            // Add the normalized item to the new array
             $normalizedData[] = $normalizedItem;
         }
-        // dd($normalizedData);
-        // Return the new normalized data
         $this->normalizedResults = $normalizedData;
         return $normalizedData;
     }
@@ -88,6 +79,7 @@ class Vikor extends Component
     {
 
         $dataCollection = collect($data);
+        // rumus bobot
         $total_w = $this->selectedBobotAkreditasi + $this->selectedBobotJumlahSantri + $this->selectedBobotBiayaBulanan + $this->selectedBobotFasilitas + $this->selectedBobotEkstrakurikuler;
         $weights = [
             'akreditasi' => $this->selectedBobotAkreditasi / $total_w,
@@ -118,6 +110,7 @@ class Vikor extends Component
         $R = [];
         $Q = [];
 
+        // hitung nilai R dan S
         foreach ($data as $item) {
             $S_val = 0;
             $R_val = -INF;
@@ -143,13 +136,14 @@ class Vikor extends Component
         $S_neg = max($S);
         $R_star = min($R);
         $R_neg = max($R);
+        // nilai R dan S selesai
 
-        // Prevent division by zero for Q calculation
+
+        // perangkinang nilai Q
         foreach ($data as $item) {
             $S_val = $S[$item['id']];
             $R_val = $R[$item['id']];
 
-            // Calculate Q with division by zero protection
             $S_denominator = $S_neg - $S_star;
             $R_denominator = $R_neg - $R_star;
 
@@ -159,13 +153,14 @@ class Vikor extends Component
             $Q[$item['id']] = 0.5 * $S_term + 0.5 * $R_term;
         }
 
-        // dd($data);
+        // kirim data akhir ke tampilan
         return collect(array_map(function ($item) use ($Q) {
             $item['Q'] = $Q[$item['id']];
             return $item;
         }, $data))->sortBy('Q')->values()->all();
     }
 
+    // simpan data hasil perhitungan vikor
     private function storeVikorResults($sortedResults)
     {
         foreach ($sortedResults as $rank => $result) {
