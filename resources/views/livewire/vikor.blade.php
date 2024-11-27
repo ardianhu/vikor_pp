@@ -11,7 +11,7 @@
                     <!-- <div> <input type="range" wire:model="selectedBobotAkreditasi" id="bobot_akreditasi" x-model="bobot_akreditasi" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
                     <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_akreditasi == 5 ? 'Sangat Prioritas' : bobot_akreditasi == 4 ? 'Prioritas Tinggi' : bobot_akreditasi == 3 ? 'Prioritas Menengah' : bobot_akreditasi == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div> -->
 
-                    <label class="block text-gray-500">Bobot Akreditasi</label>
+                    <label class="block text-gray-500">Akreditasi</label>
                     <div class="flex flex-col gap-y-2 mt-2">
                         <label class="flex items-center gap-x-2">
                             <input type="radio" name="bobot_akreditasi" wire:model="selectedBobotAkreditasi" x-model="bobot_akreditasi" value="1" class="border-gray-300 text-gray-700 focus:ring">
