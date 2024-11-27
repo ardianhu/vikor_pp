@@ -1,73 +1,186 @@
 <div>
     <form wire:submit.prevent="calculateVikor" class="bg-white p-8 w-full mx-auto">
-        <h2 class="text-2xl font-semibold text-gray-700 mb-6 text-center">Tentukan bobot untuk kriteria pesantren impianmu</h2>
+        <h2 class="text-2xl font-semibold text-gray-700 mb-6 text-center">Tentukan kriteria pesantren impianmu</h2>
 
-        <div class="mb-5 flex flex-col md:flex-row items-center">
+        <div class="mb-5 flex flex-col md:flex-row items-center md:items-start">
             <img src="{{ asset('images/akreditasi.png') }}" alt="Akreditasi" class="w-52 h-52 mx-auto object-cover">
             <div class="md:flex-1 md:ml-10">
-                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Akreditasi</label>
-                <!-- <input
-                    type="range"
-                    wire:model="selectedAkreditasi"
-                    min="0"
-                    max="5"
-                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500" />
-
-                <div class="text-gray-700 font-semibold mt-2">
-                    Selected Value: <span></span>
-                </div> -->
                 <!-- Starts component -->
                 <div x-data="{ bobot_akreditasi: 1 }" class="w-full">
-                    <div> <input type="range" wire:model="selectedBobotAkreditasi" id="bobot_akreditasi" x-model="bobot_akreditasi" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_akreditasi == 5 ? 'Sangat Prioritas' : bobot_akreditasi == 4 ? 'Prioritas Tinggi' : bobot_akreditasi == 3 ? 'Prioritas Menengah' : bobot_akreditasi == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+
+                    <!-- <div> <input type="range" wire:model="selectedBobotAkreditasi" id="bobot_akreditasi" x-model="bobot_akreditasi" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_akreditasi" class="block text-gray-500">Bobot Akreditasi</label> <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_akreditasi == 5 ? 'Sangat Prioritas' : bobot_akreditasi == 4 ? 'Prioritas Tinggi' : bobot_akreditasi == 3 ? 'Prioritas Menengah' : bobot_akreditasi == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div> -->
+
+                    <label class="block text-gray-500">Bobot Akreditasi</label>
+                    <div class="flex flex-col gap-y-2 mt-2">
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_akreditasi" wire:model="selectedBobotAkreditasi" x-model="bobot_akreditasi" value="1" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Bukan Prioritas</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_akreditasi" wire:model="selectedBobotAkreditasi" x-model="bobot_akreditasi" value="2" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Rendah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_akreditasi" wire:model="selectedBobotAkreditasi" x-model="bobot_akreditasi" value="3" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Menengah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_akreditasi" wire:model="selectedBobotAkreditasi" x-model="bobot_akreditasi" value="4" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Tinggi</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_akreditasi" wire:model="selectedBobotAkreditasi" x-model="bobot_akreditasi" value="5" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Sangat Prioritas</span>
+                        </label>
+                    </div>
+
+                    <!-- Display Selected Value -->
+                    <!-- <div class="mt-4 flex items-center gap-x-2 w-full">
+                        <input type="number" id="inputBobotAkreditasi" x-model="bobot_akreditasi" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">
+                        /<span x-text="bobot_akreditasi == 5 ? 'Sangat Prioritas' : bobot_akreditasi == 4 ? 'Prioritas Tinggi' : bobot_akreditasi == 3 ? 'Prioritas Menengah' : bobot_akreditasi == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span>
+                    </div> -->
+
                 </div> <!-- Ends component -->
             </div>
         </div>
 
-        <div class="mb-5 flex flex-col md:flex-row items-center">
+        <div class="mb-5 flex flex-col md:flex-row items-center md:items-start">
             <img src="{{ asset('images/jumlah_santri.jpg') }}" alt="Jumlah Santri" class="w-52 h-52 mx-auto object-cover">
             <div class="md:flex-1 md:ml-10">
-                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Jumlah Santri</label>
+                <!-- <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Jumlah Santri</label> -->
                 <!-- Starts component -->
                 <div x-data="{ bobot_jumlah_santri: 1 }" class="w-full">
-                    <div> <input type="range" wire:model="selectedBobotJumlahSantri" id="bobot_jumlah_santri" x-model="bobot_jumlah_santri" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_jumlah_santri" class="block text-gray-500">Bobot Jumlah Santri</label> <input type="number" id="inputBobotJumlahSantri" x-model="bobot_jumlah_santri" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_jumlah_santri == 5 ? 'Sangat Prioritas' : bobot_jumlah_santri == 4 ? 'Prioritas Tinggi' : bobot_jumlah_santri == 3 ? 'Prioritas Menengah' : bobot_jumlah_santri == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <!-- <div> <input type="range" wire:model="selectedBobotJumlahSantri" id="bobot_jumlah_santri" x-model="bobot_jumlah_santri" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_jumlah_santri" class="block text-gray-500">Bobot Jumlah Santri</label> <input type="number" id="inputBobotJumlahSantri" x-model="bobot_jumlah_santri" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_jumlah_santri == 5 ? 'Sangat Prioritas' : bobot_jumlah_santri == 4 ? 'Prioritas Tinggi' : bobot_jumlah_santri == 3 ? 'Prioritas Menengah' : bobot_jumlah_santri == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div> -->
+                    <label class="block text-gray-500">Jumlah Santri</label>
+                    <div class="flex flex-col gap-y-2 mt-2">
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_jumlah_santri" wire:model="selectedBobotJumlahSantri" x-model="bobot_jumlah_santri" value="1" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Bukan Prioritas</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_jumlah_santri" wire:model="selectedBobotJumlahSantri" x-model="bobot_jumlah_santri" value="2" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Rendah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_jumlah_santri" wire:model="selectedBobotJumlahSantri" x-model="bobot_jumlah_santri" value="3" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Menengah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_jumlah_santri" wire:model="selectedBobotJumlahSantri" x-model="bobot_jumlah_santri" value="4" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Tinggi</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_jumlah_santri" wire:model="selectedBobotJumlahSantri" x-model="bobot_jumlah_santri" value="5" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Sangat Prioritas</span>
+                        </label>
+                    </div>
                 </div> <!-- Ends component -->
             </div>
         </div>
 
-        <div class="mb-5 flex flex-col md:flex-row items-center">
+        <div class="mb-5 flex flex-col md:flex-row items-center md:items-start">
             <img src="{{ asset('images/biaya_bulanan.jpeg') }}" alt="Biaya Bulanan" class="w-52 h-52 mx-auto object-cover">
             <div class="md:flex-1 md:ml-10">
-                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Biaya Bulanan</label>
+                <!-- <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Biaya Bulanan</label> -->
                 <!-- Starts component -->
                 <div x-data="{ bobot_biaya_bulanan: 1 }" class="w-full">
-                    <div> <input type="range" wire:model="selectedBobotBiayaBulanan" id="bobot_biaya_bulanan" x-model="bobot_biaya_bulanan" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_biaya_bulanan" class="block text-gray-500">Bobot Biaya Bulanan</label> <input type="number" id="inputBobotBiayaBulanan" x-model="bobot_biaya_bulanan" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_biaya_bulanan == 5 ? 'Sangat Prioritas' : bobot_biaya_bulanan == 4 ? 'Prioritas Tinggi' : bobot_biaya_bulanan == 3 ? 'Prioritas Menengah' : bobot_biaya_bulanan == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <!-- <div> <input type="range" wire:model="selectedBobotBiayaBulanan" id="bobot_biaya_bulanan" x-model="bobot_biaya_bulanan" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_biaya_bulanan" class="block text-gray-500">Bobot Biaya Bulanan</label> <input type="number" id="inputBobotBiayaBulanan" x-model="bobot_biaya_bulanan" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_biaya_bulanan == 5 ? 'Sangat Prioritas' : bobot_biaya_bulanan == 4 ? 'Prioritas Tinggi' : bobot_biaya_bulanan == 3 ? 'Prioritas Menengah' : bobot_biaya_bulanan == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div> -->
+                    <label class="block text-gray-500">Biaya Bulanan</label>
+                    <div class="flex flex-col gap-y-2 mt-2">
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_biaya_bulanan" wire:model="selectedBobotBiayaBulanan" x-model="bobot_biaya_bulanan" value="1" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Bukan Prioritas</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_biaya_bulanan" wire:model="selectedBobotBiayaBulanan" x-model="bobot_biaya_bulanan" value="2" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Rendah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_biaya_bulanan" wire:model="selectedBobotBiayaBulanan" x-model="bobot_biaya_bulanan" value="3" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Menengah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_biaya_bulanan" wire:model="selectedBobotBiayaBulanan" x-model="bobot_biaya_bulanan" value="4" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Tinggi</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_biaya_bulanan" wire:model="selectedBobotBiayaBulanan" x-model="bobot_biaya_bulanan" value="5" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Sangat Prioritas</span>
+                        </label>
+                    </div>
                 </div> <!-- Ends component -->
             </div>
         </div>
 
-        <div class="mb-5 flex flex-col md:flex-row items-center">
+        <div class="mb-5 flex flex-col md:flex-row items-center md:items-start">
             <img src="{{ asset('images/fasilitas.jpg') }}" alt="Fasilits" class="w-52 h-52 mx-auto object-cover">
             <div class="md:flex-1 md:ml-10">
-                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Fasilitas</label>
+                <!-- <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Fasilitas</label> -->
                 <!-- Starts component -->
                 <div x-data="{ bobot_fasilitas: 1 }" class="w-full">
-                    <div> <input type="range" wire:model="selectedBobotFasilitas" id="bobot_fasilitas" x-model="bobot_fasilitas" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_fasilitas" class="block text-gray-500">Bobot Fasilitas</label> <input type="number" id="inputBobotFasilitas" x-model="bobot_fasilitas" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_fasilitas == 5 ? 'Sangat Prioritas' : bobot_fasilitas == 4 ? 'Prioritas Tinggi' : bobot_fasilitas == 3 ? 'Prioritas Menengah' : bobot_fasilitas == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <!-- <div> <input type="range" wire:model="selectedBobotFasilitas" id="bobot_fasilitas" x-model="bobot_fasilitas" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_fasilitas" class="block text-gray-500">Bobot Fasilitas</label> <input type="number" id="inputBobotFasilitas" x-model="bobot_fasilitas" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_fasilitas == 5 ? 'Sangat Prioritas' : bobot_fasilitas == 4 ? 'Prioritas Tinggi' : bobot_fasilitas == 3 ? 'Prioritas Menengah' : bobot_fasilitas == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div> -->
+                    <label class="block text-gray-500">Fasilitas</label>
+                    <div class="flex flex-col gap-y-2 mt-2">
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_fasilitas" wire:model="selectedBobotFasilitas" x-model="bobot_fasilitas" value="1" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Bukan Prioritas</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_fasilitas" wire:model="selectedBobotFasilitas" x-model="bobot_fasilitas" value="2" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Rendah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_fasilitas" wire:model="selectedBobotFasilitas" x-model="bobot_fasilitas" value="3" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Menengah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_fasilitas" wire:model="selectedBobotFasilitas" x-model="bobot_fasilitas" value="4" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Tinggi</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_fasilitas" wire:model="selectedBobotFasilitas" x-model="bobot_fasilitas" value="5" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Sangat Prioritas</span>
+                        </label>
+                    </div>
                 </div> <!-- Ends component -->
             </div>
         </div>
 
-        <div class="mb-5 flex flex-col md:flex-row items-center">
+        <div class="mb-5 flex flex-col md:flex-row items-center md:items-start">
             <img src="{{ asset('images/ekstrakurikuler.jpg') }}" alt="Ekstrakurikuler" class="w-52 h-52 mx-auto object-cover">
             <div class="md:flex-1 md:ml-10">
-                <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Ekstrakurikuler</label>
+                <!-- <label class="block text-gray-600 font-medium mb-2 text-center md:text-left">Ekstrakurikuler</label> -->
                 <!-- Starts component -->
                 <div x-data="{ bobot_ekstrakurikuler: 1 }" class="w-full">
-                    <div> <input type="range" wire:model="selectedBobotEkstrakurikuler" id="bobot_ekstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
-                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_ekstrakurikuler" class="block text-gray-500">Bobot Ekstrakurikuler</label> <input type="number" id="inputBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_ekstrakurikuler == 5 ? 'Sangat Prioritas' : bobot_ekstrakurikuler == 4 ? 'Prioritas Tinggi' : bobot_ekstrakurikuler == 3 ? 'Prioritas Menengah' : bobot_ekstrakurikuler == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div>
+                    <!-- <div> <input type="range" wire:model="selectedBobotEkstrakurikuler" id="bobot_ekstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" step="1" class="w-full mt-2 border border-gray-300 appearance-none rounded-full h-8 px-2 outline-none overflow-hidden" style="--thumb-color: #f94121;"> </div>
+                    <div class="mt-4 flex items-center gap-x-2 w-full"> <label for="bobot_ekstrakurikuler" class="block text-gray-500">Bobot Ekstrakurikuler</label> <input type="number" id="inputBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" min="1" max="5" class="border border-gray-300 rounded-lg px-2 py-1 h-10 w-14 text-gray-700 outline-none focus:ring">/<span x-text="bobot_ekstrakurikuler == 5 ? 'Sangat Prioritas' : bobot_ekstrakurikuler == 4 ? 'Prioritas Tinggi' : bobot_ekstrakurikuler == 3 ? 'Prioritas Menengah' : bobot_ekstrakurikuler == 2 ? 'Prioritas Rendah' : 'Bukan Prioritas'"></span></div> -->
+                    <label class="block text-gray-500">Ekstrakurikuler</label>
+                    <div class="flex flex-col gap-y-2 mt-2">
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_ekstrakurikuler" wire:model="selectedBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" value="1" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Bukan Prioritas</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_ekstrakurikuler" wire:model="selectedBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" value="2" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Rendah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_ekstrakurikuler" wire:model="selectedBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" value="3" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Menengah</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_ekstrakurikuler" wire:model="selectedBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" value="4" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Prioritas Tinggi</span>
+                        </label>
+                        <label class="flex items-center gap-x-2">
+                            <input type="radio" name="bobot_ekstrakurikuler" wire:model="selectedBobotEkstrakurikuler" x-model="bobot_ekstrakurikuler" value="5" class="border-gray-300 text-gray-700 focus:ring">
+                            <span>Sangat Prioritas</span>
+                        </label>
+                    </div>
                 </div> <!-- Ends component -->
             </div>
         </div>
